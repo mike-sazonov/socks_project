@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def start_page(request):
-    return render(request, 'socks_page/start_page.html')
+    return render(request, 'socks_page/base.html')
