@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+}
+
+.block-style {
+    box-shadow: 0 2px 8px #808080;
+    border-radius: 5px;
+    max-width: 50%;
+    background-color: #E0FFFF;
+}

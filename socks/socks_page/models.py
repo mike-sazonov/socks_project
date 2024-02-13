@@ -15,4 +15,5 @@ class Socks(models.Model):
     season = models.CharField(max_length=1, choices=SEASON, default=S)
     price = models.IntegerField(validators=[MinValueValidator(1)])
 
-
+    def __str__(self):
+        return f'{self.article} {self.season} {self.price}'
