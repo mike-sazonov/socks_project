@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('socks/', views.socks, name='socks'),
-    path('', views.start_page),
+    path('socks/', views.SocksView.as_view(), name='socks'),
+    path('', views.StartPage.as_view()),
 ]
