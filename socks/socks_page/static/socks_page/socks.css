@@ -1,10 +1,29 @@
-body {
-    text-align: center;
-}
-
 .block-style {
     box-shadow: 0 2px 8px #808080;
     border-radius: 5px;
     max-width: 50%;
     background-color: #E0FFFF;
+}
+
+.menu {
+    display: flex;
+    box-shadow: 0 3px 8px #808080;
+    background-color: #87CEEB
+}
+
+.start {
+    box-shadow: 0 3px 8px #808080;
+    border-radius: 5px;
+    width: 450px;
+    height: 60px;
+    margin: 15px;
+    background-color: #E0FFFF;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    font-family: Impact;
+    font-weight: 800;
+    font-size: 25px;
+    color: black
 }
