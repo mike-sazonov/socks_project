@@ -8,6 +8,9 @@
     <link rel="stylesheet" href=" {% static 'socks_page/socks.css' %}">
 </head>
 <body>
+    <div class="top">
+        <a href="{% url 'start' %}">Главная страница</a>
+    </div>
    {% block content %} {% endblock %}
 </body>
 </html>

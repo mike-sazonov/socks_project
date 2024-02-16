@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 {% block title %} Каталог носков {% endblock %}
 {% block content %}
+<div class="search">
+    <h3>Параметры поиска:</h3>
+    <form method="get">
+        {% for form in forms %}
+        <div class="form">{{ form.label }} {{ form }} </div>
+        <br>
+        {% endfor %}
+        <button class="button" type="submit">Отправить</button>
+    </form>
+</div>
     {% for sock in socks %}
-    <div class="block-style">{{ sock }}</div>
+    <div class="block-style">{{ sock }} {{ sock.season }}</div>
     {% endfor %}
 {% endblock %}

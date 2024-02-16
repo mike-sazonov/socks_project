@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('socks/', views.SocksView.as_view(), name='socks'),
-    path('', views.StartPage.as_view()),
+    path('', views.StartPage.as_view(), name='start'),
 ]
