@@ -28,12 +28,12 @@ class SocksView(View):
         form = SocksForm(request.GET)
 
         if form.is_valid():
-            if form.changed_data:
+            if form.changed_data: # если фильтры не пустые
                 socks = Socks.objects.filter(
                     season__in=[
                         ('Лето', 'Зима')[form.cleaned_data['winter']],
                         ('Зима', 'Лето')[form.cleaned_data['summer']]],
-                    gender__in=[form.cleaned_data['gender']]
+                    gender__in=form.cleaned_data['gender'].split(' ')
                     )
             else:
                 socks = Socks.objects.all()

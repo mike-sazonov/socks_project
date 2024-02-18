@@ -6,9 +6,11 @@
     <form method="get">
         {% for form in forms %}
         <div class="form">{{ form.label }} {{ form }} </div>
-        <br>
         {% endfor %}
-        <button class="button" type="submit">Отправить</button>
+        <button class="button" type="submit">Применить</button>
+    </form>
+    <form action="{% url 'socks' %}">
+        <button  class="button" >Сбросить</button>
     </form>
 </div>
     {% for sock in socks %}

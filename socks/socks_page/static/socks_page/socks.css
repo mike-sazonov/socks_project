@@ -37,7 +37,7 @@
     float: left;
     width: 20%;
     box-shadow: 0 10px 8px #808080;
-    background-color: #87CEEB;
+    background-color: #d2fce0;
     border-radius: 5px;
     margin: 20px;
 }
@@ -47,7 +47,7 @@
     background-color: white;
     border-radius: 5px;
     text-align: center;
-    margin: 5px;
+    margin: 10px;
     font-family: Impact;
     font-weight: 400;
     font-size: 20px;
