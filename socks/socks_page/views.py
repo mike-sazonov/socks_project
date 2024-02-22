@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Socks
 from django.views.generic.base import TemplateView
-from django.views.generic import View, ListView
+from django.views.generic import View
 from .forms import SocksForm
 
 

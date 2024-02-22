@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Socks
+from .models import Socks, ImageSocks
 
 # Register your models here.
 
@@ -7,3 +7,8 @@ from .models import Socks
 @admin.register(Socks)
 class AdminSocks(admin.ModelAdmin):
     list_display = ['article', 'season', 'price']
+
+
+@admin.register(ImageSocks)
+class AdminImageSocks(admin.ModelAdmin):
+    list_display = ['image']
