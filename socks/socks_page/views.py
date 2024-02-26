@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Socks
+from .models import Socks, MenuImage
 from django.views.generic.base import TemplateView
-from django.views.generic import View
+from django.views.generic import View, DetailView
 from .forms import SocksForm
 
 
@@ -20,6 +20,7 @@ class StartPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['menu'] = menu
+        context['images'] = MenuImage.objects.all()
         return context
 
 
@@ -42,3 +43,9 @@ class SocksView(View):
             'forms': form,
             'socks': socks
         })
+
+
+class SockDetail(DetailView):
+    model = Socks
+    template_name = 'socks_page/sock_detail.html'
+    context_object_name = 'sock'

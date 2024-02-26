@@ -33,3 +33,7 @@ class Socks(models.Model):
 class ImageSocks(models.Model):
     product = models.ForeignKey(Socks, on_delete=models.CASCADE, related_name='images')
     image = models.FileField(upload_to='socks_gallery')
+
+
+class MenuImage(models.Model):
+    image = models.FileField(upload_to='menu_field')

@@ -15,12 +15,14 @@
 </div>
 <div class="cards">
 {% for sock in socks %}
-    <div class="card">
-        {{ sock }} {{ sock.season }}
-        {% if sock.start_image %}
-            <img src="{{ sock.start_image.url }}" width="200" height="150"/>
-        {% endif %}
-    </div>
+    <a href="{% url 'detail' sock.id %}">
+        <div class="card">
+            {{ sock }} {{ sock.season }}
+            {% if sock.start_image %}
+                <img src="{{ sock.start_image.url }}" width="200" height="150"/>
+            {% endif %}
+        </div>
+    </a>
 {% endfor %}
 </div>
 {% endblock %}
