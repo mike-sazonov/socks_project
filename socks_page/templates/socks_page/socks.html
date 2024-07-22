@@ -17,10 +17,10 @@
 {% for sock in socks %}
     <a href="{% url 'detail' sock.id %}">
         <div class="card">
-            {{ sock }} {{ sock.season }}
             {% if sock.start_image %}
-                <img src="{{ sock.start_image.url }}" width="200" height="150"/>
+                <img src="{{ sock.start_image.url }}" width="90%" class="img"/>
             {% endif %}
+            {{ sock }} {{ sock.season }}
         </div>
     </a>
 {% endfor %}

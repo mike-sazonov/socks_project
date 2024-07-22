@@ -5,4 +5,5 @@
     {% for img in sock.images.all %}
         <img src="{{ img.image.url }}" width="400" height="300">
     {% endfor %}
+    {{ sock.description }}
 {% endblock %}

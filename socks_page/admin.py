@@ -13,6 +13,7 @@ class AdminSocks(admin.ModelAdmin):
 class AdminImageSocks(admin.ModelAdmin):
     list_display = ['image']
 
+
 @admin.register(MenuImage)
 class AdminMenuImage(admin.ModelAdmin):
     list_display = ['image']

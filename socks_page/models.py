@@ -25,6 +25,7 @@ class Socks(models.Model):
     price = models.IntegerField(validators=[MinValueValidator(1)])
     gender = models.CharField(max_length=7, choices=GENDER, default=WOMEN)
     start_image = models.FileField(upload_to='start_images', null=True)
+    description = models.TextField(default="не указано")
 
     def __str__(self):
         return f'{self.article} {self.gender} {self.price}'
