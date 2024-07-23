@@ -10,7 +10,7 @@ menu = {
     '/socks': 'Каталог продукции',
     '/about': 'О нас',
     '/delivery': 'Доставка',
-    '/Contacts': 'Контакты'
+    '/contacts': 'Контакты'
 }
 
 
@@ -51,4 +51,13 @@ class SockDetail(DetailView):
     context_object_name = 'sock'
 
 
+class AboutView(TemplateView):
+    template_name = 'socks_page/about.html'
 
+
+class DeliveryView(TemplateView):
+    template_name = 'socks_page/delivery.html'
+
+
+class ContactsView(TemplateView):
+    template_name = 'socks_page/contacts.html'
