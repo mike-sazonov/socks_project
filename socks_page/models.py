@@ -13,11 +13,13 @@ class Socks(models.Model):
     ]
     MEN = 'Мужской'
     WOMEN = 'Женский'
+    UNISEX = 'Унисекс'
     СHILD = 'Детский'
 
     GENDER = [
         ('Мужской', 'Мужской'),
         ('Женский', 'Женский'),
+        ('Унисекс', 'Унисекс'),
         ('Детский', 'Детский')
     ]
     article = models.CharField(max_length=50)

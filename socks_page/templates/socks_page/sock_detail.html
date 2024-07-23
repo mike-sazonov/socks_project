@@ -1,9 +1,18 @@
 {% extends "base.html" %}
+
 {% block title %} Информация {% endblock %}
 {% block content %}
     {{ sock }}
+<div class="slideshow-container">
     {% for img in sock.images.all %}
-        <img src="{{ img.image.url }}" width="400" height="300">
+    <div class="mySlides fade">
+    <div class="numbertext">{{forloop.counter}} / {{ sock.images.all|length }}</div>
+    <img src="{{ img.image.url }}">
+  </div>
     {% endfor %}
-    {{ sock.description }}
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+{{ sock.description }}
 {% endblock %}

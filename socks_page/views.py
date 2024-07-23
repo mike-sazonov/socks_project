@@ -49,3 +49,6 @@ class SockDetail(DetailView):
     model = Socks
     template_name = 'socks_page/sock_detail.html'
     context_object_name = 'sock'
+
+
+

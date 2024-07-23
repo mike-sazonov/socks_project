@@ -6,9 +6,10 @@ class SocksForm(forms.Form):
         ('Не выбран', 'Не выбран'),
         ('Мужской', 'Мужской'),
         ('Женский', 'Женский'),
+        ('Унисекс', 'Унисекс'),
         ('Детский', 'Детский'),
         ]
-    ALL_GENDER = 'Мужской Женский Детский'
+    ALL_GENDER = 'Мужской Женский Унисекс Детский'
     winter = forms.BooleanField(required=False, label='Зима')
     summer = forms.BooleanField(required=False, label='Лето')
     gender = forms.ChoiceField(choices=GENDER, required=False, label='Пол: ')
