@@ -8,4 +8,12 @@
         <a class="start" href="{{ url }}">{{ name }}</a>
     {% endfor %}
 </div>
+<div class="menu_image">
+    {% for image in images %}
+    <div class="menuSlides fade">
+    <img src="{{ image.image.url }}">
+    </div>
+    {% endfor %}
+</div>
+<script src="/static/js/menu_slide.js"></script>
 {% endblock %}

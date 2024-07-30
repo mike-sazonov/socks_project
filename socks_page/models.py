@@ -23,6 +23,7 @@ class Socks(models.Model):
         ('Детский', 'Детский')
     ]
     article = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, default='Носки')
     season = models.CharField(max_length=4, choices=SEASON, default=SMMR)
     price = models.IntegerField(validators=[MinValueValidator(1)])
     gender = models.CharField(max_length=7, choices=GENDER, default=WOMEN)
