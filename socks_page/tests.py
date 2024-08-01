@@ -148,3 +148,4 @@ class SocksModelTestCase(TestCase):
 
     def test_socks_count(self):
         self.assertEqual(Socks.objects.count(), 3)
+
