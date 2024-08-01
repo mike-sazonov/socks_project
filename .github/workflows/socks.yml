@@ -13,12 +13,6 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
 
-      - name: pipenv
-        run: pip install pipenv
-
-      - name: create requirements.txt
-        run: pipenv --venv
-
       - name: install dependencies
         run: pip install -r requirements.txt
 
