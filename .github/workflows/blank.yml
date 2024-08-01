@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Python, pipenv and Pipfile packages
-        uses: kojoru/prepare-pipenv@v1
+        uses: wangsha/action-pipenv-setup@main
 
       - name: unit tests
         run: python3 manage.py test
