@@ -16,5 +16,8 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
 
+      - name: migrations
+        run: python3 manage.py migrate
+
       - name: unit tests
         run: python3 manage.py test
