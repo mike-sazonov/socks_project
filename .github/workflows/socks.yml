@@ -13,6 +13,9 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
 
+      - name: view
+        run: ls
+
       - name: create requirements.txt
         run: jq -r '.default
           | to_entries[]
