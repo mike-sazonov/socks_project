@@ -1,24 +1,13 @@
-name: Print workflow
-on: workflow_dispatch
+name: Deploy to Hosting
+on:
+  push:
+    branches:
+      - master
 
 jobs:
 
-  print_hello:
+  unit_tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Print hello
-        run: echo "Hello world!"
-        
-  print_full_technical_info: #Начало секции второй джобы
-    needs: print_hello 
-    runs-on: ubuntu-latest #Среда выполнения джоба
-    steps: #Начало секции шагов
-      - name: Print full_tech_info #Название шага
-        run: sudo lshw #Команда, которая будет выполнена в терминале
-
-  print_short_technical_info: #Начало секции третий джобы
-    needs: print_hello
-    runs-on: ubuntu-latest #Среда выполнения джоба
-    steps: #Начало секции шагов
-      - name: Print short_tech_info #Название шага
-        run: sudo lshw -short #Команда, которая будет выполнена в терминале
+      - name: Unit tests
+        run: python manage.py test
