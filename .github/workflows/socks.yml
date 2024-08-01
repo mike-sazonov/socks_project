@@ -1,0 +1,21 @@
+name: Deploy to Hosting
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: checkout_repo
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: install -d
+
+      - name: unit tests
+        run: python3 manage.py test
