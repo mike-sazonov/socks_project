@@ -12,14 +12,8 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
 
-      - name: python 3.11
-        run: sudo apt install python3.11
-        
-      - name: install pipenv
-        run: pip install pipenv
-
-      - name: dependencies
-        run: pipenv install
+      - name: Install Python, pipenv and Pipfile packages
+        uses: kojoru/prepare-pipenv@v1
 
       - name: unit tests
         run: python3 manage.py test
