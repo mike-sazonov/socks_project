@@ -19,7 +19,7 @@ jobs:
         run: pip install pipenv
 
       - name: pipenv shell
-        run: pipenv shell
+        run: python3 -m pipenv shell
 
       - name: start pipenv
         run: pipenv install
