@@ -12,14 +12,11 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
 
-      - name: python ver
-        run: python3 --version
+      - name: python 3.11
+        run: sudo apt install python3.11
 
       - name: install pipenv
         run: pip install pipenv
-
-      - name: get pipenv
-        run: pipenv install --python 3.11
 
       - name: start pipenv
         run: pipenv shell
