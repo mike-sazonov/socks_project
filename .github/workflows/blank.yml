@@ -20,6 +20,9 @@ jobs:
 
       - name: start pipenv
         run: pipenv install
+
+      - name: pipenv shell
+        run: pipenv shell
         
       - name: Unit tests
         run: python3 manage.py test
