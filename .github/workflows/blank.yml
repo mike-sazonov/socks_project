@@ -11,9 +11,6 @@ jobs:
     
       - name: checkout_repo
         uses: actions/checkout@v4
-        
-      - name: activate venv
-        run: python3 -m venv venv
 
       - name: python 3.11
         run: sudo apt install python3.11
@@ -22,7 +19,7 @@ jobs:
         run: pip install pipenv
 
       - name: dependencies
-        run: pipenv sync
+        run: pipenv install
 
       - name: unit tests
         run: python3 manage.py test
