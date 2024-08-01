@@ -12,10 +12,14 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        uses: VaultVulp/action-pipenv@v2.0.1
-        with:
-          command: install -d
+      - name: create requirements.txt
+        run: jq -r '.default
+          | to_entries[]
+          | .key + .value.version' \
+          Pipfile.lock > requirements.txt
+
+      - name: install dependencies
+        run: pip install -r requirements.txt
 
       - name: unit tests
         run: python3 manage.py test
