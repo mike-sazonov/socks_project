@@ -8,8 +8,15 @@ jobs:
   unit_tests:
     runs-on: ubuntu-latest
     steps:
+    
       - name: checkout_repo
         uses: actions/checkout@v4
+
+      - name: install pipenv
+        run: pip install pipenv
+
+      - name: get pipenv
+        run: pipenv shell
         
       - name: Unit tests
         run: python3 manage.py test
