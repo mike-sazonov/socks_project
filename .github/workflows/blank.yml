@@ -16,7 +16,7 @@ jobs:
         run: pip install pipenv
 
       - name: get pipenv
-        run: pipenv shell
+        run: pipenv install requests
         
       - name: Unit tests
         run: python3 manage.py test
