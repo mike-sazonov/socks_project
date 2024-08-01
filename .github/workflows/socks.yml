@@ -1,0 +1,26 @@
+name: Deploy to Hosting
+on: workflow_dispatch
+  
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: checkout_repo
+        uses: actions/checkout@v4
+
+      - name: pipenv
+        run: pip install pipenv
+
+      - name: create requirements.txt
+        run: pipenv --venv
+
+      - name: install dependencies
+        run: pip install -r requirements.txt
+
+      - name: unit tests
+        run: python3 manage.py test
