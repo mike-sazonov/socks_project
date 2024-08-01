@@ -1,9 +1,8 @@
 name: Deploy to Hosting
-on: workflow_dispatch
-  
-  # push:
-  #   branches:
-  #     - main
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   unit_tests:
