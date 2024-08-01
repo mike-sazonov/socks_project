@@ -12,8 +12,10 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
 
-      - name: Install Python, pipenv and Pipfile packages
-        uses: wangsha/action-pipenv-setup@main
+      - name: Install Dependencies
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: install -d
 
       - name: unit tests
         run: python3 manage.py test
