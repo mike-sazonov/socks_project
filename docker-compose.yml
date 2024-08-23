@@ -5,14 +5,14 @@ services:
     build: ./
     command: python3 manage.py runserver 0.0.0.0:8000 --insecure
     volumes:
-      - .:/app
+      - ./:/app
     ports:
       - 8000:8000
     restart: always
     depends_on:
       - db
     env_file:
-      - docker.env
+      - .env.docker
 
   db:
     container_name: socks_postgres
