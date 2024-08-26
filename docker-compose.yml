@@ -34,7 +34,7 @@ services:
   nginx:
     container_name: nginx
     working_dir: /app
-    image: nginx:stable-alpine
+    image: nginx:stable
     restart: always
     ports:
       - "80:80"
