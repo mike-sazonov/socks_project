@@ -32,6 +32,8 @@ services:
     volumes:
       - pgdb:/var/lib/postgresql/data
     restart: always
+    networks:
+      - myapp_network
 
   nginx:
     container_name: nginx
