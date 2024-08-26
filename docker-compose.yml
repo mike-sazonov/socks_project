@@ -12,6 +12,8 @@ services:
       - db
     env_file:
       - .env.docker
+    networks:
+      - myapp_network
     command: sh -c "python3 manage.py collectstatic --no-input &&
                     python3 manage.py makemigrations &&
                     python3 manage.py migrate &&
@@ -49,6 +51,8 @@ services:
       - app
     depends_on:
       - app
+    networks:
+      - myapp_network
 
   certbot:
       image: certbot/certbot
@@ -59,6 +63,10 @@ services:
 #      command: certonly --webroot --webroot-path=/var/www/certbot/ --email mihailsazon@gmail.com --agree-tos --no-eff-email -d squad-socks.ru -d www.squad-socks.ru
       depends_on:
         - nginx
+
+networks:
+  myapp_network:
+    driver: bridge
 
 volumes:
   pgdb: null
