@@ -1,6 +1,8 @@
 from os import getenv
 from pathlib import Path
 import os
+
+from django.conf.global_settings import CSRF_TRUSTED_ORIGINS
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,6 +22,7 @@ DEBUG = bool(os.getenv("DEBUG"))
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = str(os.getenv("CSRF_TRUSTED_ORIGINS"))
 
 # Application definition
 

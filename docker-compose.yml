@@ -1,6 +1,7 @@
 services:
   django:
     build: ./
+    container_name: django
     volumes:
       - ./:/app
       - ./static:/app/static
