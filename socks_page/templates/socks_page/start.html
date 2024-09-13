@@ -1,19 +1,39 @@
 {% extends "base.html" %}
 
-{% block title %} Startpage {% endblock %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
+{% block title %} Squad_socks {% endblock %}
 {% block content %}
-<div class="menu">
-    {% for url, name in menu.items %}
-        <a class="start" href="{{ url }}">{{ name }}</a>
-    {% endfor %}
-</div>
-<div class="menu_image">
-    {% for image in images %}
-    <div class="menuSlides fade">
-    <img src="{{ image.image.url }}">
+<div class="d-sm-none d-lg-block bg-white opacity-75" style="height: 70px;">
+    <div class="d-flex p-2">
+        {% for url, name in menu.items %}
+            <a class="btn btn-outline-secondary btn-lg me-2" href="{{ url }}" role="button" style="width: 25%;">{{ name }}</a>
+        {% endfor %}
     </div>
+</div>
+<div class="d-lg-none bg-white opacity-75">
+    <p>
+        <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <img class="p-2" src="/static/css/button.png" style="height: 160px;">
+        </a>
+    </p>
+    <div class="collapse bg-white" id="collapseExample">
+        <div class="container p-2" style="width: 100%;">
+            {% for url, name in menu.items %}
+                <div class="d-grid p-2">
+                    <a class="btn btn-outline-secondary btn-lg p-2" href="{{ url }}" style="--bs-btn-font-size: 4rem;">{{ name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div>
+    {% for image in images %}
+        <img src="{{ image.image.url }}">
     {% endfor %}
 </div>
-<script src="/static/js/menu_slide.js"></script>
+
 {% endblock %}

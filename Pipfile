@@ -8,6 +8,7 @@ django = "*"
 python-dotenv = "*"
 psycopg2 = "*"
 gunicorn = "*"
+django-bootstrap5 = "*"
 
 [dev-packages]
 

@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'socks_page',
-    'django.contrib.postgres'
+    'django.contrib.postgres',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
