@@ -1,30 +1,103 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% block title %} Каталог носков {% endblock %}
 {% block content %}
-<div class="search">
-    <h3>Параметры поиска:</h3>
-    <form method="get">
-        {% for form in forms %}
-        <div class="form">{{ form.label }} {{ form }} </div>
-        {% endfor %}
-        <button class="button" type="submit">Применить</button>
-    </form>
-    <form action="{% url 'socks' %}">
-        <button  class="button" >Сбросить</button>
-    </form>
-</div>
-<div class="cards">
-{% for sock in socks %}
-    <a href="{% url 'detail' sock.id %}">
-        <div class="card">
-            {% if sock.start_image %}
-            <div class="img">
-                <img src="{{ sock.start_image.url }}"/>
-            </div>
-            {% endif %}
-            {{ sock.name }}
-        </div>
+<div class="d-sm-none d-lg-block bg-white p-2" style="height: 70px;">
+    <a class="btn btn-outline-secondary btn-lg me-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+      aria-controls="offcanvasExample">
+    Параметры поиска
     </a>
+</div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Параметры поиска</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form method="get">
+            <div class="row p-2">
+                <div class="btn-group-vertical">
+                    {% for form in forms %}
+                    <div class="btn btn-outline-secondary btn-lg">
+                        <div class="row">
+                            <div class="col text-start"><h4>{{ form.label }}</h4></div>
+                            <div class="col">
+                                <div class="lg-checkbox">{{ form }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row p-2">
+                <button class="btn btn-outline-secondary btn-lg" type="submit"><h4>Применить</h4></button>
+            </div>
+        </form>
+        <form action="{% url 'socks' %}">
+            <div class="row p-2">
+                <button class="btn btn-outline-secondary btn-lg"><h4>Сбросить</h4></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="d-lg-none bg-white">
+    <p>
+        <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <img class="p-2" src="/static/css/f-button.png" style="height: 160px;">
+        </a>
+    </p>
+    <div class="collapse bg-white" id="collapseExample">
+        <form method="get">
+            <div class="container p-2" style="width: 100%;">
+                {% for form in forms %}
+                <div class="d-grid p-2">
+                    <div class="btn btn-outline-secondary btn-lg" style="--bs-btn-font-size: 4rem;">
+                        <div class="row">
+                            <div class="col p-2" style="width: 300px;">{{ form.label }}</div>
+                            <div class="col p-2">
+                                <div class="sm-checkbox">{{ form }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="container">
+                <div class="row p-2">
+                    <button class="btn btn-outline-secondary btn-lg" type="submit" style="--bs-btn-font-size: 4rem;">
+                        Применить
+                    </button>
+                </div>
+            </div>
+        </form>
+        <form action="{% url 'socks' %}">
+            <div class="container">
+                <div class="row p-2">
+                    <button class="btn btn-outline-secondary btn-lg" style="--bs-btn-font-size: 4rem;">Сбросить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row p-2">
+{% for sock in socks %}
+    <div class="col-sm-6 col-lg-3">
+        <a href="{% url 'detail' sock.id %}">
+            <div class="card text-center">
+                {% if sock.start_image %}
+                <img src="{{ sock.start_image.url }}" class="card-img-top" style="width: 100%;"/>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ sock.name }}</h5>
+                </div>
+            </div>
+        </a>
+    </div>
 {% endfor %}
 </div>
 {% endblock %}

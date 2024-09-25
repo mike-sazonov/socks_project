@@ -6,14 +6,14 @@
 
 {% block title %} Squad_socks {% endblock %}
 {% block content %}
-<div class="d-sm-none d-lg-block bg-white opacity-75" style="height: 70px;">
+<div class="d-sm-none d-lg-block bg-white" style="height: 70px;">
     <div class="d-flex p-2">
         {% for url, name in menu.items %}
             <a class="btn btn-outline-secondary btn-lg me-2" href="{{ url }}" role="button" style="width: 25%;">{{ name }}</a>
         {% endfor %}
     </div>
 </div>
-<div class="d-lg-none bg-white opacity-75">
+<div class="d-lg-none bg-white">
     <p>
         <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             <img class="p-2" src="/static/css/button.png" style="height: 160px;">
