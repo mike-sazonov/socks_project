@@ -5,18 +5,25 @@
 
 {% block title %} Информация {% endblock %}
 {% block content %}
-    {{ sock }}
-<div class="slideshow-container">
-    {% for img in sock.images.all %}
-    <div class="mySlides fade">
-    <div class="numbertext">{{forloop.counter}} / {{ sock.images.all|length }}</div>
-    <img src="{{ img.image.url }}">
+<div class="container p-2">
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-inner">
+      {% for img in sock.images.all %}
+      <div class="carousel-item {% if forloop.first %} active {% endif %}">
+        <img src="{{ img.image.url }}" class="img-fluid rounded mx-auto d-block" style="height: calc(100vh - 150px);">
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-    {% endfor %}
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-<br>
-{{ sock.description }}
-<script src="/static/js/socks_slide.js"></script>
 {% endblock %}
