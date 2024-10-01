@@ -47,7 +47,7 @@
 <div class="d-lg-none bg-white">
     <p>
         <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <img class="p-2" src="/static/css/f-button.png" style="height: 160px;">
+            <img class="p-2" src="/static/images/f-button.png" style="height: 160px;">
         </a>
     </p>
     <div class="collapse bg-white" id="collapseExample">
@@ -88,7 +88,7 @@
 {% for sock in socks %}
     <div class="col-sm-6 col-lg-3">
         <a href="{% url 'detail' sock.id %}">
-            <div class="card text-center shadow">
+            <div class="card text-center shadow h-100">
                 {% if sock.start_image %}
                 <img src="{{ sock.start_image.url }}" class="card-img-top"/>
                 {% endif %}

@@ -16,7 +16,7 @@
 <div class="d-lg-none bg-white">
     <p>
         <a type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <img class="p-2" src="/static/css/button.png" style="height: 160px;">
+            <img class="p-2" src="/static/images/button.png" style="height: 160px;">
         </a>
     </p>
     <div class="collapse bg-white" id="collapseExample">
@@ -29,11 +29,97 @@
         </div>
     </div>
 </div>
-
-<div>
-    {% for image in images %}
-        <img src="{{ image.image.url }}">
-    {% endfor %}
+<div class="d-block p-4 bg-white rounded opacity-75">
+    <div class="fs-1 fw-bold text-center">
+        Производитель носков из города Тула
+    </div>
 </div>
-
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for img in images %}
+    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+      <img src="{{ img.image.url }}" class="d-block w-100">
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="d-block p-4 bg-white rounded opacity-75">
+    <div class="fs-2 fw-bold text-center">
+        Наши преимущества:
+    </div>
+</div>
+<div class="block">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="row p-4 g-2 justify-content-around">
+            <div class="col-sm-4 col-lg-2 text-center shadow">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <figure data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <img src="/static/images/skill.png" class="img-fluid"/>
+                            <figcaption class="text-center p-2 fs-2 fw-bold">ОПЫТ</figcaption>
+                        </figure>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body fs-4">
+                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-2 text-center shadow">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <figure data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <img src="/static/images/quality.png" class="img-fluid"/>
+                            <figcaption class="text-center p-2 fs-2 fw-bold">КАЧЕСТВО</figcaption>
+                        </figure>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body fs-4">
+                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-2 text-center shadow">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <figure data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <img src="/static/images/design.png" class="img-fluid"/>
+                            <figcaption class="text-center p-2 fs-2 fw-bold">ДИЗАЙНА</figcaption>
+                        </figure>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body fs-4">
+                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-2 text-center shadow">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <figure data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                            <img src="/static/images/clock.png" class="img-fluid"/>
+                            <figcaption class="text-center p-2 fs-2 fw-bold">СРОКИ</figcaption>
+                        </figure>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body fs-4">
+                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

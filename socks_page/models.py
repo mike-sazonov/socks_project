@@ -29,6 +29,7 @@ class Socks(models.Model):
     gender = models.CharField(max_length=7, choices=GENDER, default=WOMEN)
     start_image = models.FileField(upload_to='start_images', null=True)
     description = models.TextField(default="не указано")
+    fabric = models.TextField(default="состав не указан")
 
     def __str__(self):
         return f'{self.article} {self.gender} {self.price}'
