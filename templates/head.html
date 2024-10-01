@@ -1,14 +1,36 @@
 {% block content %}
     <div class="sticky-top">
-        <div class="d-lg-block bg-white d-sm-none" style="width: 100%;">
+        <div class="d-lg-flex bg-white d-sm-none justify-content-between" style="width: 100%;">
             <a href="{% url 'start' %}">
                 <img class="p-2" src="/static/images/squad.png" style="width: 200px;">
             </a>
+            <div class="fs-1 fw-bold text-center align-self-center">
+                Производитель носков из города Тула
+                <img src="/static/images/gerb.jpg" style="width: 50px;">
+            </div>
+            <div class="fs-5 fw-bold text-center p-2">
+                Телефон: +7 (910) 164-27-66;
+                <br>
+                Email: vyach.bickow@yandex.ru;
+            </div>
         </div>
-        <div class="d-flex bg-white d-lg-none" style="width: 100%;">
-            <a href="{% url 'start' %}">
-                <img class="p-2" src="/static/css/squad.png" style="width: 400px;">
-            </a>
+        <div class="d-lg-none bg-white" style="width: 100%;">
+            <div class="row">
+                <div class="col">
+                    <a href="{% url 'start' %}">
+                        <img class="p-2" src="/static/css/squad.png" style="width: 400px;">
+                    </a>
+                </div>
+                <div class="col">
+                    <div class="fs-1 fw-bold text-center p-4">
+                        Производитель носков <br> из города Тула
+                        <img src="/static/images/gerb.jpg" style="width: 50px;">
+                    </div>
+                </div>
+                <div class="fs-3 fw-bold text-center p-2">
+                    Телефон: +7 (910) 164-27-66;&nbsp&nbsp&nbspEmail: vyach.bickow@yandex.ru;
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
