@@ -4,7 +4,7 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-{% block title %} Squad_socks {% endblock %}
+{% block title %} Squad-socks {% endblock %}
 {% block content %}
 <div class="d-sm-none d-lg-block bg-white" style="height: 70px;">
     <div class="d-flex p-2">
@@ -27,7 +27,7 @@
         </div>
     </div>
 </div>
-<div id="carouselExample1" class="carousel slide d-lg-block d-sm-none" data-bs-ride="carousel">
+<div id="carouselExample1" class="carousel slide d-lg-block d-sm-none p-2" data-bs-ride="carousel">
   <div class="carousel-inner">
     {% for img in images_lg %}
         <div class="carousel-item {% if forloop.first %} active {% endif %}">
@@ -66,8 +66,10 @@
                         </figure>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body fs-3">
-                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        <div class="accordion-body fs-3 text-start lh-sm">
+                            Вот уже более ... лет мы производим носочно-чулочную продукцию для Российского рынка.
+                            За это время мы набрались значительного опыта, что позволяет конкурировать с ведущими производителями
+                            в нашей сфере.
                         </div>
                     </div>
                 </div>
@@ -85,8 +87,9 @@
                         </figure>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body fs-3">
-                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        <div class="accordion-body fs-3 text-start lh-sm">
+                            Мы строго следим за качеством продукции! Наше производство оснащено современным импортным оборудованием,
+                            что позволяет снизить процент брака до минимума.
                         </div>
                     </div>
                 </div>
@@ -104,8 +107,9 @@
                         </figure>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body fs-3">
-                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        <div class="accordion-body fs-3 text-start lh-sm">
+                            Производственные мощности позволяют нам выпускать до ... носков в сутки.
+                            Наш приоритет - выпустить для Вас продукцию точно в срок!
                         </div>
                     </div>
                 </div>
@@ -123,8 +127,8 @@
                         </figure>
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body fs-3">
-                            Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        <div class="accordion-body fs-3 text-start lh-sm">
+                            Вы можете заказать у нас любой дизайн изделия.
                         </div>
                     </div>
                 </div>

@@ -17,39 +17,3 @@
     transform: scale(2);
 
 }
-
-.about
-{
-  text-align: center;
-  background-color: white;
-  margin: 30px;
-  border-radius: 10px;
-  font-family: 'Arial';
-  font-weight: bold;
-  font-size: larger;
-  box-shadow: 0 3px 8px #808080;
-}
-
-.delivery
-{
-  text-align: center;
-  background-color: white;
-  margin: 30px;
-  border-radius: 10px;
-  font-family: 'Arial';
-  font-weight: bold;
-  font-size: larger;
-  box-shadow: 0 3px 8px #808080;
-}
-
-.contacts
-{
-  text-align: center;
-  background-color: white;
-  margin: 30px;
-  border-radius: 10px;
-  font-family: 'Arial';
-  font-weight: bold;
-  font-size: larger;
-  box-shadow: 0 3px 8px #808080;
-}

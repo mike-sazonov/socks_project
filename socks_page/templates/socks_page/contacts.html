@@ -1,9 +1,31 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
 
-{% block title %} About {% endblock %}
+{% block title %} Контакты {% endblock %}
 
 {% block content %}
-    <div class="contacts">
-        какой-то текст
+<div class="container">
+    <div class="fs-3 text-center">
+        Телефон: +7 (910) 164-27-66
+        <br>
+        Email: vyach.bickow@yandex.ru
+        <br>
+        Адрес: Тульская обл., г. Тула, ул. Ползунова, д. 1
     </div>
+    <div class="d-flex justify-content-center p-4">
+        <div style="position:relative;overflow:hidden;">
+            <a href="https://yandex.ru/maps/15/tula/?utm_medium=mapframe&utm_source=maps"
+               style="color:#eee;font-size:12px;position:absolute;top:0px;">
+                Тула
+            </a>
+            <a href="https://yandex.ru/maps/15/tula/house/ulitsa_polzunova_1/Z04YcwBoS00HQFtufX13c3tgZg==/?ll=37.578280%2C54.162732&utm_medium=mapframe&utm_source=maps&z=17.14"
+               style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Ползунова, 1 — Яндекс Карты
+            </a>
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.578280%2C54.162732&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzY0MjcxMhI40KDQvtGB0YHQuNGPLCDQotGD0LvQsCwg0YPQu9C40YbQsCDQn9C-0LvQt9GD0L3QvtCy0LAsIDEiCg0pUBZCFaSmWEI%2C&z=17.14"
+                    width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
+            </iframe>
+        </div>
+    </div>
+</div>
 {% endblock %}

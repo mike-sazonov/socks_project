@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
 
-{% block title %} About {% endblock %}
+{% block title %} Доставка {% endblock %}
 
 {% block content %}
-    <div class="delivery">
-        какой-то текст
+<div class="container">
+    <div class="fs-3 text-center">
+        Осуществляем доставку по всей России транспортными компаниями.<br>
+        Есть собственный транспорт для доставки. Расстояние и стоимость доставки обсуждаются.
     </div>
+</div>
 {% endblock %}
