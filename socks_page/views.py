@@ -2,8 +2,12 @@ from django.shortcuts import render
 from .models import Socks, MenuImage
 from django.views.generic.base import TemplateView
 from django.views.generic import View, DetailView
+from django.core.files.images import get_image_dimensions
 from .forms import SocksForm
 
+
+def r_div(x):   # функция для определения соотношения сторон изображения
+    return round(x[0] / x[1])
 
 # Create your views here.
 menu = {
@@ -20,9 +24,9 @@ class StartPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['menu'] = menu
-        context['images'] = MenuImage.objects.all()
+        context['images_lg'] = [img for img in MenuImage.objects.all() if r_div(get_image_dimensions(img.image)) == 3]
+        context['images_sm'] = [img for img in MenuImage.objects.all() if r_div(get_image_dimensions(img.image)) != 3]
         return context
-
 
 class SocksView(View):
     def get(self, request):

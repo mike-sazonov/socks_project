@@ -17,7 +17,7 @@
 </div>
 <div class="row justify-content-center p-4 g-sm-3">
   <div class="col-sm-10 col-lg-5">
-    <div id="carouselExampleIndicators" class="carousel slide shadow">
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide shadow">
       <div class="carousel-inner rounded">
         {% for img in sock.images.all %}
         <div class="carousel-item {% if forloop.first %} active {% endif %}">
@@ -42,18 +42,22 @@
       <b>{{ sock.name }}</b>
       <br>
       <b>Описание:</b>
+      <br>
       {{ sock.description }}
       <br>
       <b>Состав:</b>
+      <br>
       {{ sock.fabric }}
     </div>
     <div class="d-lg-none text-center fs-1" style="height: 556px; overflow: auto;">
       <b>{{ sock.name }}</b>
       <br>
       <b>Описание:</b>
+      <br>
       {{ sock.description }}
       <br>
       <b>Состав:</b>
+      <br>
       {{ sock.fabric }}
     </div>
   </div>
