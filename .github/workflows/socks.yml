@@ -27,7 +27,10 @@ jobs:
 
       - name: makemigrations
         run: python3 manage.py makemigrations
-        
+
+        env:
+          STATICFILES_DIRS: "static"
+
       - name: migrate
         run: python3 manage.py migrate
 
