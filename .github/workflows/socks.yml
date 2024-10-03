@@ -30,6 +30,7 @@ jobs:
 
         env:
           STATICFILES_DIRS: "static"
+          MEDIA_ROOT: "media/"
 
       - name: migrate
         run: python3 manage.py migrate
