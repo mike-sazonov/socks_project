@@ -52,4 +52,9 @@ jobs:
       - name: unit tests
         run: python3 manage.py test
 
+        env:
+          STATICFILES_DIRS: "static"
+          MEDIA_ROOT: "media/"
+          CSRF_TRUSTED_ORIGINS=https: "https://127.0.0.1"
+
 
