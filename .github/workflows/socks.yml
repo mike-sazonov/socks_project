@@ -44,7 +44,7 @@ jobs:
           PG_NAME: Socks
           PG_USER: postgres
           PG_PASSWORD: 1111
-          PG_HOST: localhost
+          PG_HOST: postgres
           PG_PORT: 5432
 
       - name: unit tests
