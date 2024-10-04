@@ -32,8 +32,6 @@ jobs:
           STATICFILES_DIRS: "static"
           MEDIA_ROOT: "media/"
           CSRF_TRUSTED_ORIGINS=https: "https://127.0.0.1"
-          POSTGRES_HOST: postgres
-          POSTGRES_PORT: 5432
 
       - name: migrate
         run: python3 manage.py migrate
@@ -42,8 +40,12 @@ jobs:
           STATICFILES_DIRS: "static"
           MEDIA_ROOT: "media/"
           CSRF_TRUSTED_ORIGINS=https: "https://127.0.0.1"
-          POSTGRES_HOST: postgres
-          POSTGRES_PORT: 5432
+          PG_ENGINE: django.db.backends.postgresql
+          PG_NAME: Socks
+          PG_USER: postgres
+          PG_PASSWORD: 1111
+          PG_HOST: localhost
+          PG_PORT: 5432
 
       - name: unit tests
         run: python3 manage.py test
