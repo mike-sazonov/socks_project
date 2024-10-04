@@ -17,6 +17,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          - 5432:5432
     steps:
     
       - name: checkout_repo
@@ -43,7 +45,7 @@ jobs:
           PG_ENGINE: django.db.backends.postgresql
           PG_NAME: Socks
           PG_USER: postgres
-          PG_PASSWORD: 1111
+          PG_PASSWORD: postgres
           PG_HOST: postgres
           PG_PORT: 5432
 
