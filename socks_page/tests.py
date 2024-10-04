@@ -37,99 +37,99 @@ class TestSocksPage(TestCase):
     def test_catalog_filter_all_gender_all_season(self):
         response = self.client.get('/socks/?gender=Не+выбран')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 8)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 8)
 
     def test_catalog_filter_all_gender_all_season_in_checkbox(self):
         response = self.client.get('/socks/?winter=on&summer=on&gender=Не+выбран')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 8)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 8)
 
     def test_catalog_filter_all_gender_summer(self):
         response = self.client.get('/socks/?summer=on&gender=Не+выбран')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 4)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 4)
         self.assertEqual(response.content.decode().count('летний'), 4)
 
     def test_catalog_filter_all_gender_winter(self):
         response = self.client.get('/socks/?winter=on&gender=Не+выбран')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 4)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 4)
         self.assertEqual(response.content.decode().count('зимний'), 4)
 
     def test_catalog_filter_women_all_season(self):
         response = self.client.get('/socks/?gender=Женский')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 2)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 2)
         self.assertEqual(response.content.decode().count('жен_летний'), 1)
         self.assertEqual(response.content.decode().count('жен_зимний'), 1)
 
     def test_catalog_filter_men_all_season(self):
         response = self.client.get('/socks/?gender=Мужской')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 2)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 2)
         self.assertEqual(response.content.decode().count('муж_летний'), 1)
         self.assertEqual(response.content.decode().count('муж_зимний'), 1)
 
     def test_catalog_filter_child_all_season(self):
         response = self.client.get('/socks/?gender=Детский')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 2)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 2)
         self.assertEqual(response.content.decode().count('дет_летний'), 1)
         self.assertEqual(response.content.decode().count('дет_зимний'), 1)
 
     def test_catalog_filter_unisex_all_season(self):
         response = self.client.get('/socks/?gender=Унисекс')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 2)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 2)
         self.assertEqual(response.content.decode().count('уни_летний'), 1)
         self.assertEqual(response.content.decode().count('уни_зимний'), 1)
 
     def test_catalog_filter_women_summer(self):
         response = self.client.get('/socks/?summer=on&gender=Женский')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('жен_летний'), 1)
 
     def test_catalog_filter_men_summer(self):
         response = self.client.get('/socks/?summer=on&gender=Мужской')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('муж_летний'), 1)
 
     def test_catalog_filter_child_summer(self):
         response = self.client.get('/socks/?summer=on&gender=Детский')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('дет_летний'), 1)
 
     def test_catalog_filter_unisex_summer(self):
         response = self.client.get('/socks/?summer=on&gender=Унисекс')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('уни_летний'), 1)
 
     def test_catalog_filter_women_winter(self):
         response = self.client.get('/socks/?winter=on&gender=Женский')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('жен_зимний'), 1)
 
     def test_catalog_filter_men_winter(self):
         response = self.client.get('/socks/?winter=on&gender=Мужской')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('муж_зимний'), 1)
 
     def test_catalog_filter_child_winter(self):
         response = self.client.get('/socks/?winter=on&gender=Детский')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('дет_зимний'), 1)
 
     def test_catalog_filter_unisex_winter(self):
         response = self.client.get('/socks/?winter=on&gender=Унисекс')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content.decode().count('class="card"'), 1)
+        self.assertEqual(response.content.decode().count('class="card text-center shadow h-100"'), 1)
         self.assertEqual(response.content.decode().count('уни_зимний'), 1)
 
 
