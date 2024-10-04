@@ -56,5 +56,10 @@ jobs:
           STATICFILES_DIRS: "static"
           MEDIA_ROOT: "media/"
           CSRF_TRUSTED_ORIGINS=https: "https://127.0.0.1"
-
+          PG_ENGINE: django.db.backends.postgresql
+          PG_NAME: postgres
+          PG_USER: postgres
+          PG_PASSWORD: postgres
+          PG_HOST: localhost
+          PG_PORT: 5432
 
