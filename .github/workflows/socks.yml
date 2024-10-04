@@ -38,6 +38,13 @@ jobs:
       - name: migrate
         run: python3 manage.py migrate
 
+        env:
+          STATICFILES_DIRS: "static"
+          MEDIA_ROOT: "media/"
+          CSRF_TRUSTED_ORIGINS=https: "https://127.0.0.1"
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
+
       - name: unit tests
         run: python3 manage.py test
 
