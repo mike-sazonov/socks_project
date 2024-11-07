@@ -57,6 +57,7 @@ services:
           - ./docker/certbot/conf:/etc/letsencrypt:rw
           - ./docker/certbot/www:/var/www/certbot:rw
 #      command: certonly --webroot --webroot-path=/var/www/certbot/ --email mihailsazon@gmail.com --agree-tos --no-eff-email -d squad-socks.ru -d www.squad-socks.ru
+      command: renew --webroot --webroot-path=/var/www/certbot/
       depends_on:
         - nginx
 
