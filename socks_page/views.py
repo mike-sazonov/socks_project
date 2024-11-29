@@ -1,7 +1,11 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render
+from django.views.generic.edit import FormMixin
+
 from .models import Socks, MenuImage
 from django.views.generic.base import TemplateView
-from django.views.generic import View, DetailView
+from django.views.generic import View, DetailView, ListView, FormView
 from django.core.files.images import get_image_dimensions
 from .forms import SocksForm
 
@@ -28,25 +32,31 @@ class StartPage(TemplateView):
         context['images_sm'] = [img for img in MenuImage.objects.all() if r_div(get_image_dimensions(img.image)) != 3]
         return context
 
-class SocksView(View):
-    def get(self, request):
-        form = SocksForm(request.GET)
+class SocksView(ListView):
+    model = Socks
+    template_name = 'socks_page/socks.html'
+    context_object_name = 'socks'
+    form_class = SocksForm
+    paginate_by = 8
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data()
+        context['forms'] = self.form_class(self.request.GET)
+        return context
+
+    def get_queryset(self):
+        form = self.form_class(self.request.GET)
 
         if form.is_valid():
             if form.changed_data:    # если фильтры не пустые
-                socks = Socks.objects.filter(
+                return Socks.objects.filter(
                     season__in=[
                         ('Лето', 'Зима')[form.cleaned_data['winter']],
                         ('Зима', 'Лето')[form.cleaned_data['summer']]],
                     gender__in=form.cleaned_data['gender'].split(' ')
                     )
             else:
-                socks = Socks.objects.all()
-
-        return render(request, 'socks_page/socks.html', {
-            'forms': form,
-            'socks': socks
-        })
+                return Socks.objects.all()
 
 
 class SockDetail(DetailView):

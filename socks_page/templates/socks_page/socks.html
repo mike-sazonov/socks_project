@@ -101,3 +101,23 @@
 {% endfor %}
 </div>
 {% endblock %}
+
+{% block navigation %}
+{% if page_obj.has_other_pages %}
+<nav>
+    <ul class="pagination pagination-lg justify-content-center">
+        {% for p in paginator.page_range %}
+            {% if page_obj.number == p %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
