@@ -2,6 +2,7 @@
 {% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% load my_tags %}
 
 {% block title %} Каталог носков {% endblock %}
 {% block content %}
@@ -109,11 +110,11 @@
         {% for p in paginator.page_range %}
             {% if page_obj.number == p %}
                 <li class="page-item disabled">
-                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                    <a class="page-link" href="?{% param_replace page=p %}">{{ p }}</a>
                 </li>
             {% else %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                    <a class="page-link" href="?{% param_replace page=p %}Вернуться ">{{ p }}</a>
                 </li>
             {% endif %}
         {% endfor %}

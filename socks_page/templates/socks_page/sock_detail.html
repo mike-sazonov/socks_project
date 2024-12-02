@@ -6,12 +6,12 @@
 {% block title %} Информация {% endblock %}
 {% block content %}
 <div class="d-sm-none d-lg-block bg-white p-2" style="height: 70px;">
-    <a class="btn btn-outline-secondary btn-lg me-2" href="{% url 'socks' %}">
+    <a class="btn btn-outline-secondary btn-lg me-2" href="{{ request.META.HTTP_REFERER }}">
     Вернуться в каталог
     </a>
 </div>
 <div class="d-lg-none bg-white p-4" style="height: 160px;">
-    <a class="btn btn-outline-secondary btn-lg me-2" href="{% url 'socks' %}" style="--bs-btn-font-size: 4rem;">
+    <a class="btn btn-outline-secondary btn-lg me-2" href="{{ request.META.HTTP_REFERER }}" style="--bs-btn-font-size: 4rem;">
     Вернуться в каталог
     </a>
 </div>
