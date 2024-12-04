@@ -70,3 +70,4 @@ class DeliveryView(TemplateView):
 
 class ContactsView(TemplateView):
     template_name = 'socks_page/contacts.html'
+
