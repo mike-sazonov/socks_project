@@ -1,11 +1,6 @@
-from lib2to3.fixes.fix_input import context
-
-from django.shortcuts import render
-from django.views.generic.edit import FormMixin
-
 from .models import Socks, MenuImage
 from django.views.generic.base import TemplateView
-from django.views.generic import View, DetailView, ListView, FormView
+from django.views.generic import DetailView, ListView
 from django.core.files.images import get_image_dimensions
 from .forms import SocksForm
 
