@@ -1,8 +1,14 @@
-from .models import Socks, MenuImage
-from django.views.generic.base import TemplateView
+from django.shortcuts import redirect
+from django.views.generic.base import TemplateView, View
 from django.views.generic import DetailView, ListView
 from django.core.files.images import get_image_dimensions
+from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
+
 from .forms import SocksForm
+from .models import Socks, MenuImage, Favorites
+
+User = get_user_model()
 
 
 def r_div(x):   # функция для определения соотношения сторон изображения
@@ -59,6 +65,15 @@ class SockDetail(DetailView):
     template_name = 'socks_page/sock_detail.html'
     context_object_name = 'sock'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        try:
+            Favorites.objects.get(user=self.request.user.id, sock=self.kwargs['pk'])
+            context['fav_button'] = 'В избранном'
+        except ObjectDoesNotExist:
+            context['fav_button'] = 'Добавить в избранное'
+        return context
+
 
 class AboutView(TemplateView):
     template_name = 'socks_page/about.html'
@@ -71,3 +86,13 @@ class DeliveryView(TemplateView):
 class ContactsView(TemplateView):
     template_name = 'socks_page/contacts.html'
 
+
+class FavoriteView(View):
+    def post(self, request, pk):
+        try:
+            Favorites.objects.get(user=request.user.id, sock=pk).delete()
+        except ObjectDoesNotExist:
+            favorite = Favorites.objects.create(user=User.objects.get(id=request.user.id),
+                                                sock=Socks.objects.get(id=pk))
+            favorite.save()
+        return redirect(f'/socks/{pk}')

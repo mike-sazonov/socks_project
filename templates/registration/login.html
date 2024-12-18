@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-2 text-center">
+    <div class="fs-1 fw-bold">Вход:</div>
+</div>
+<form method="post" class="d-lg-flex d-sm-none justify-content-center">
+    {% csrf_token %}
+    <div class="p-2 text-center">
+        <label class="form-label fs-5"> Адрес электронной почты </label>
+        <div class="form-control-lg">{{ form.username }}</div>
+        <label class="form-label fs-5"> Пароль </label>
+        <div class="form-control-lg">{{ form.password }}</div>
+        <button type="submit" class="btn btn-outline-secondary fs-5">Войти</button>
+    </div>
+</form>
+<form method="post" class="d-lg-none justify-content-center">
+    {% csrf_token %}
+    <div class="p-2 text-center">
+        <label class="form-label fs-2"> Адрес электронной почты </label>
+        <div class="form-control-lg" style="font-size: xx-large;">{{ form.username }}</div>
+        <label class="form-label fs-2"> Пароль </label>
+        <div class="form-control-lg" style="font-size: xx-large;">{{ form.password }}</div>
+        <button type="submit" class="btn btn-outline-secondary fs-2">Войти</button>
+    </div>
+</form>
+
+<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+{% endblock %}
+

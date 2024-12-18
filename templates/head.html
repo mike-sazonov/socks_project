@@ -1,4 +1,22 @@
 {% block content %}
+    <div class="d-flex p-2">
+        {% if user.is_authenticated %}
+        <a class="btn btn-outline-secondary btn me-2" href="{% url 'my_page' %}">
+            <img src="/static/images/profile_pic.png" style="width: 30px;">
+            {{ user.username }}
+        </a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-outline-secondary btn me-2" type="submit">
+                выход
+                <img src="/static/images/exit.png" style="width: 30px;">
+            </button>
+        </form>
+        {% else %}
+            <a class="btn btn-outline-secondary btn me-2" href="{% url 'login' %}">вход</a>
+            <a class="btn btn-outline-secondary btn me-2" href="{% url 'register' %}">регистрация</a>
+        {% endif %}
+    </div>
     <div class="sticky-top">
         <div class="d-lg-flex bg-white d-sm-none justify-content-between" style="width: 100%;">
             <a href="{% url 'start' %}">

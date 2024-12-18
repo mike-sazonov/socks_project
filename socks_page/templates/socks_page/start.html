@@ -8,6 +8,7 @@
 {% block content %}
 <div class="d-sm-none d-lg-block bg-white" style="height: 70px;">
     <div class="d-flex p-2">
+
         {% for url, name in menu.items %}
             <a class="btn btn-outline-secondary btn-lg me-2" href="{{ url }}" role="button" style="width: 25%;">{{ name }}</a>
         {% endfor %}

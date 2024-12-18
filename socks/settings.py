@@ -1,8 +1,6 @@
-from os import getenv
 from pathlib import Path
 import os
 
-from django.conf.global_settings import CSRF_TRUSTED_ORIGINS
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -24,6 +22,29 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [str(os.getenv("CSRF_TRUSTED_ORIGINS"))]
 
+AUTH_USER_MODEL = 'accounts.User'
+
+LOGIN_REDIRECT_URL = 'start'
+
+LOGOUT_REDIRECT_URL = 'start'
+
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.auth.EmailAuthBackend'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -34,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'socks_page',
+    'accounts',
     'django.contrib.postgres',
     'django_bootstrap5',
 ]

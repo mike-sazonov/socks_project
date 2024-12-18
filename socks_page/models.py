@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your models here.
 
@@ -14,7 +17,7 @@ class Socks(models.Model):
     MEN = 'Мужской'
     WOMEN = 'Женский'
     UNISEX = 'Унисекс'
-    СHILD = 'Детский'
+    CHILD = 'Детский'
 
     GENDER = [
         ('Мужской', 'Мужской'),
@@ -30,6 +33,7 @@ class Socks(models.Model):
     start_image = models.FileField(upload_to='start_images', null=True)
     description = models.TextField(default="не указано")
     fabric = models.TextField(default="состав не указан")
+    user = models.ManyToManyField(User)
 
     def __str__(self):
         return f'{self.article} {self.gender} {self.price}'
@@ -42,3 +46,8 @@ class ImageSocks(models.Model):
 
 class MenuImage(models.Model):
     image = models.FileField(upload_to='menu_field')
+
+
+class Favorites(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    sock = models.ForeignKey(Socks, on_delete=models.CASCADE)
