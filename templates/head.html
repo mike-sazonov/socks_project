@@ -1,5 +1,5 @@
 {% block content %}
-    <div class="d-flex p-2 justify-content-end">
+    <div class="d-lg-flex d-sm-none p-2 justify-content-end">
         {% if user.is_authenticated %}
         <a class="btn btn-outline-secondary btn me-2" href="{% url 'my_page' %}">
             <img src="/static/images/profile_pic.png" style="width: 30px;">
@@ -15,6 +15,24 @@
         {% else %}
             <a class="btn btn-outline-secondary btn me-2" href="{% url 'login' %}">вход</a>
             <a class="btn btn-outline-secondary btn me-2" href="{% url 'register' %}">регистрация</a>
+        {% endif %}
+    </div>
+    <div class="d-sm-flex d-lg-none p-2 justify-content-end">
+        {% if user.is_authenticated %}
+        <a class="btn btn-outline-secondary btn me-2 fs-1" href="{% url 'my_page' %}">
+            <img src="/static/images/profile_pic.png" style="width: 40px;">
+            {{ user.username }}
+        </a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-outline-secondary btn me-2 fs-1" type="submit">
+                выход
+                <img src="/static/images/exit.png" style="width: 40px;">
+            </button>
+        </form>
+        {% else %}
+            <a class="btn btn-outline-secondary btn me-2 fs-1" href="{% url 'login' %}">вход</a>
+            <a class="btn btn-outline-secondary btn me-2 fs-1" href="{% url 'register' %}">регистрация</a>
         {% endif %}
     </div>
     <div class="sticky-top">
