@@ -1,5 +1,5 @@
 {% block content %}
-    <div class="d-flex p-2">
+    <div class="d-flex p-2 justify-content-end">
         {% if user.is_authenticated %}
         <a class="btn btn-outline-secondary btn me-2" href="{% url 'my_page' %}">
             <img src="/static/images/profile_pic.png" style="width: 30px;">
