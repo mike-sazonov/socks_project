@@ -69,7 +69,7 @@ class SockDetail(DetailView):
         context = super().get_context_data()
         try:
             Favorites.objects.get(user=self.request.user.id, sock=self.kwargs['pk'])
-            context['fav_button'] = 'В избранном'
+            context['fav_button'] = 'Убрать из избранного'
         except ObjectDoesNotExist:
             context['fav_button'] = 'Добавить в избранное'
         return context
