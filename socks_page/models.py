@@ -49,5 +49,5 @@ class MenuImage(models.Model):
 
 
 class Favorites(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    sock = models.ForeignKey(Socks, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    sock = models.ForeignKey(Socks, on_delete=models.CASCADE, null=True)
