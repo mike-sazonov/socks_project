@@ -14,7 +14,8 @@ class AdminSocks(admin.ModelAdmin):
 
 @admin.register(ImageSocks)
 class AdminImageSocks(admin.ModelAdmin):
-    list_display = ['image']
+    list_display = ['image', 'product']
+    list_filter = ['product']
 
 
 @admin.register(MenuImage)

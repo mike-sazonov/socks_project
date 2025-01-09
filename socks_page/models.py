@@ -33,7 +33,7 @@ class Socks(models.Model):
     start_image = models.FileField(upload_to='start_images', null=True)
     description = models.TextField(default="не указано")
     fabric = models.TextField(default="состав не указан")
-    user = models.ManyToManyField(User)
+    user = models.ManyToManyField(User, null=True)
 
     def __str__(self):
         return f'{self.article} {self.gender} {self.price}'
